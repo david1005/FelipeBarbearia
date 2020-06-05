@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 24 de mai de 2020, 15:12:17
+    Document   : agendar
+    Created on : 3 de jun de 2020, 15:56:29
     Author     : david
 --%>
 
@@ -33,11 +33,6 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/flaticon.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icomoon.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/materialize.min.css"  media="screen,projection"/>
 
 
     </head>
@@ -75,77 +70,65 @@
             </div>
         </section>
 
-        <section class="services-section ftco-section ">
-            <div class="container">
-                <form action="${pageContext.request.contextPath}/agendamento/login" method="post">    
-                    <h3 class="text-center text-body">Acesse sua conta</h3>
-
-
-                    <div class="form-group" align="center">
-                        <!--                        <div class="col-md-4">
-                                                    <input class="form-control input-md" type="text" id="userName" name="user.userName" placeholder="Usuário">    
-                                                </div>-->
-
-
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input  class="validate" type="text" id="userName" name="user.userName">
-                                <label class="active" for="first_name2">E-mail</label>
-                            </div>
+        <!--
+                <section class="services-section ftco-section ">
+        
+                    <div class="container c-iframe-agende">                
+                        <h3 align="center">Olá, {Nome do Usuário} </h3>
+        
+                        <div class="form-group" align="center">
+                            <a class="item" href="$//{pageContext.request.contextPath}/agendar/agendar" ><h2 class="font-weight-bold">AGENDE UM HORÁRIO</h2></a>
                         </div>
-
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input   class="validate"" type="password" name="user.password"  id="senha"  >
-                                <label class="active" for="first_name2">Senha</label>
-                            </div>
-                        </div>
-
-
-                        <!--                        <div class="col-md-4" align="center">
-                                                    <input  class="form-control input-md" type="password" name="user.password"  id="senha"  placeholder="*********">
-                                                </div>-->
+        
                     </div>
-                    <br>
-                    <div align="center">
-                        <div class="col-md-8" >               
-                            <button id="Cadastrar" name="Cadastrar" class="waves-effect waves-light btn-large" align="center" type="Submit">Entrar</button>                
-                            <div class="container-login102-form-btn m-t-32">
-                                <p class="text-center small">Não tem uma conta?<a href="${pageContext.request.contextPath}/agendamento/registrar"> Cadastrar-se</a></p>
-                            </div>
-                        </div>
-                    </div>        
-                </form>
-                <div align="center">
-                    <h5 style="color: red; border-bottom: 2px;">${mensagem}</h5>
+                </section>-->
+
+
+
+        <section class="services-section ftco-section " align="center">
+            <div class="container">
+                <div   text-right> 
+                    <button class=" text-right " >
+                        <a href="${pageContext.request.contextPath}/agendamento/sair">
+                            SAIR
+                        </a>
+                    </button>     
                 </div>
+                <h3>Agendar um horário</h3>
+                
+
+                <form>
+
+                    <select class="form-control">
+                        <option>Selecione um Serviço</option>
+                        <c:forEach items="$//{clientes}" var="cliente">  
+                            <option value="$/{cliente.id}">${cliente.name}</option>
+                        </c:forEach>
+                    </select>
+                    <br>
+                    <select class="form-control">
+                        <option>Selecione um Profissional</option>
+                        <c:forEach items="$//{clientes}" var="cliente">  
+                            <option value="$/{cliente.id}">${cliente.name}</option>
+                        </c:forEach>
+                    </select>
+                    <br>
+                    <select class="form-control">
+                        <option>Selecione o Dia</option>
+                        <c:forEach items="$//{clientes}" var="cliente">  
+                            <option value="$/{cliente.id}">${cliente.name}</option>
+                        </c:forEach>
+                    </select>
+                    <br>
+                    <select class="form-control">
+                        <option>Selecione um Horário</option>
+                        <c:forEach items="$//{clientes}" var="cliente">  
+                            <option value="$/{cliente.id}">${cliente.name}</option>
+                        </c:forEach>
+                    </select>
+                </form>
             </div>
         </section>
-
-        <!--        <div class="row">
-                    <form class="col s12">
-        
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="email" type="email" class="validate">
-                                <label for="email">Email</label>
-                            </div>
-                        </div>
-        
-                        
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                                        
-                    </form>
-                </div>-->
-
-
-
-
 
 
 
@@ -238,9 +221,5 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="${pageContext.request.contextPath}/js/google-map.js"></script>
         <script src="${pageContext.request.contextPath}/js/main.js"></script>
-
-        <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/materialize.min.js"></script>
     </body>
 </html>
-

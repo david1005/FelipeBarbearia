@@ -77,6 +77,8 @@
 
             </div>
             <div class="form-group" align="center">
+                
+                
                 <div class="col-md-4">
                     <input id="usuario" name="user.userName"  type="text" class="form-control input-md" placeholder="Usuário">    
                 </div>
@@ -84,6 +86,8 @@
                 <div class="col-md-4" align="center">
                     <input id="senha" name="user.password"  type="password" class="form-control input-md" placeholder="*********">
                 </div>
+                
+                
             </div>
             <br>
             <div align="center">

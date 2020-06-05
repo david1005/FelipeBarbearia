@@ -7,20 +7,20 @@ package br.edu.fjn.barbearia.controllers;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 
 /**
  *
  * @author david
  */
-
 @Controller
-public class HomeController {
+@Path("admin")
+public class LoginAdmController {
     
-    @Get("/")
-    public void home(){
+    
+    @Get("admin")
+    public void loginAdm(){
+        
         
     }
-    
-   
-    
 }

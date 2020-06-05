@@ -10,6 +10,8 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.barbearia.anotacao.Private;
+import br.edu.fjn.barbearia.components.UsuarioSession;
 import br.edu.fjn.barbearia.model.Usuario;
 import br.edu.fjn.barbearia.repositorios.LoginRepositorio;
 import javax.inject.Inject;
@@ -24,12 +26,16 @@ public class LoginClienteController {
        
     @Inject
     private Result result;
-     
+    @Inject
+    private UsuarioSession usuarioSession; 
+    
+    @Private
     @Get("login")
     public void login(){
         
     }
     
+    @Private
     @Get("registrar")
     public void cadastro(){
         
@@ -38,12 +44,14 @@ public class LoginClienteController {
     
     
     
+    
+    @Private
     @Post("login")
     public void login(Usuario user){
         LoginRepositorio loginRepositorio = new LoginRepositorio();
         
         if(loginRepositorio.buscaPorNomeESenha(user.getUserName(), user.getPassword()) != null){
-            //funcionarioSession.setLogado(true);
+            usuarioSession.setLogado(true);
             result.redirectTo(AgendamentoController.class).agendamento();
         }else{
             result.include("mensagem", "Usuario ou senha incorretos.");
@@ -51,6 +59,7 @@ public class LoginClienteController {
         }
     }
     
+    @Private
     @Post("cadastrar")
     public void salvar(Usuario user){
         LoginRepositorio loginRepositorio = new LoginRepositorio();
@@ -62,5 +71,11 @@ public class LoginClienteController {
             result.include("mensagem","Usuário já existe.");
             result.redirectTo(this).cadastro();
         }               
+    }
+    
+      @Get("sair")
+    public void sair() {
+        usuarioSession.setLogado(false);
+        result.redirectTo(this).login();
     }
 }

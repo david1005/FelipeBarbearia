@@ -6,16 +6,25 @@
 package br.edu.fjn.barbearia.controllers;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 
 /**
  *
  * @author david
  */
 @Controller
+@Path("agendar")
 public class AgendamentoController {
     
     
+    
     public void agendamento(){
+        
+    }
+    
+    @Get("agendar")
+    public void agendar(){
         
     }
     
