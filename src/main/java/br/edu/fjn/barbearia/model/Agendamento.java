@@ -8,10 +8,12 @@ package br.edu.fjn.barbearia.model;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -25,15 +27,21 @@ public class Agendamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    private String servico;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn
+    private Servico servico;
 
     @JoinColumn
     @OneToOne(cascade = CascadeType.ALL)
     private Funcionario funcionario;
 
-    private String data;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn
+    private DataDia dataDia;
 
-    private String horario;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn
+    private Horario horario;
 
     
     
@@ -49,13 +57,7 @@ public class Agendamento implements Serializable {
         this.id = id;
     }
 
-    public String getServico() {
-        return servico;
-    }
-
-    public void setServico(String servico) {
-        this.servico = servico;
-    }
+ 
 
     public Funcionario getFuncionario() {
         return funcionario;
@@ -65,20 +67,30 @@ public class Agendamento implements Serializable {
         this.funcionario = funcionario;
     }
 
-    public String getData() {
-        return data;
+    public DataDia getDataDia() {
+        return dataDia;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataDia(DataDia dataDia) {
+        this.dataDia = dataDia;
     }
 
-    public String getHorario() {
+    public Horario getHorario() {
         return horario;
     }
 
-    public void setHorario(String horario) {
+    public void setHorario(Horario horario) {
         this.horario = horario;
+    }
+
+  
+
+    public Servico getServico() {
+        return servico;
+    }
+
+    public void setServico(Servico servico) {
+        this.servico = servico;
     }
     
     

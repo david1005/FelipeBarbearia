@@ -3,7 +3,7 @@
     Created on : 3 de jun de 2020, 15:56:29
     Author     : david
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -97,35 +97,38 @@
                 <h3>Agendar um horário</h3>
                 
 
-                <form>
+                <form action="${pageContext.request.contextPath}/agendar/salvar" method="post">
 
-                    <select class="form-control">
+                    <select class="form-control" name="servico.id" >
                         <option>Selecione um Serviço</option>
-                        <c:forEach items="$//{clientes}" var="cliente">  
-                            <option value="$/{cliente.id}">${cliente.name}</option>
+                        <c:forEach items="${servicos}" var="servico">  
+                            <option value="${servico.id}">${servico.descricao}</option>
                         </c:forEach>
                     </select>
                     <br>
-                    <select class="form-control">
-                        <option>Selecione um Profissional</option>
-                        <c:forEach items="$//{clientes}" var="cliente">  
-                            <option value="$/{cliente.id}">${cliente.name}</option>
+                    <select class="form-control" name="funcionario.id" >
+                        <option >Selecione um Profissional</option>
+                        <c:forEach items="${funcionarios}" var="funcionario">  
+                            <option value="${funcionario.id}">${funcionario.name}</option>
                         </c:forEach>
                     </select>
                     <br>
-                    <select class="form-control">
-                        <option>Selecione o Dia</option>
-                        <c:forEach items="$//{clientes}" var="cliente">  
-                            <option value="$/{cliente.id}">${cliente.name}</option>
+                    <select class="form-control" name="datadia.id">
+                        <option>Selecione o Dia </option>
+                        <c:forEach items="${datadias}" var="datadia">  
+                            <option value="${datadia.id}">${datadia.data}</option>
                         </c:forEach>
                     </select>
                     <br>
-                    <select class="form-control">
+                    <select class="form-control" name="horario.id">
                         <option>Selecione um Horário</option>
-                        <c:forEach items="$//{clientes}" var="cliente">  
-                            <option value="$/{cliente.id}">${cliente.name}</option>
+                        <c:forEach items="${horarios}" var="horario">  
+                            <option value="${horario.id}">${horario.hora}</option>
                         </c:forEach>
                     </select>
+                        
+                        
+                        <button type="submit" class="btn btn-outline-secondary">Confirmar</button>
                 </form>
             </div>
         </section>

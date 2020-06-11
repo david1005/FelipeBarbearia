@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="form-group" align="center">
-                    <a class="item" href="#" ><h2  class="font-weight-bold">MEUS HORÁRIOS    </h2></a>
+                    <a class="item" href="${pageContext.request.contextPath}/agendar/meushorarios" ><h2  class="font-weight-bold">MEUS HORÁRIOS    </h2></a>
                 </div>
 
             </div>
