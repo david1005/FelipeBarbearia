@@ -7,6 +7,7 @@ package br.edu.fjn.barbearia.controllers;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.edu.fjn.barbearia.anotacao.Private;
 
 /**
  *
@@ -16,6 +17,7 @@ import br.com.caelum.vraptor.Get;
 @Controller
 public class HomeController {
     
+    @Private
     @Get("/")
     public void home(){
         

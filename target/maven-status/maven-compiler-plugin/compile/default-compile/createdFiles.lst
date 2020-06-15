@@ -15,6 +15,7 @@ br\edu\fjn\barbearia\model\Horario.class
 br\edu\fjn\barbearia\repositorios\DataDiaRepositorio.class
 br\edu\fjn\barbearia\repositorios\LoginRepositorio.class
 br\edu\fjn\barbearia\intercepts\LoginIntercept.class
+br\edu\fjn\barbearia\anotacao\Public.class
 br\edu\fjn\barbearia\controllers\LoginClienteController.class
 br\edu\fjn\barbearia\controllers\SobreController.class
 br\edu\fjn\barbearia\components\UsuarioSession.class
