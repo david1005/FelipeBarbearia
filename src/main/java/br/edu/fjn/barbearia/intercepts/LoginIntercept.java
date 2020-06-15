@@ -32,10 +32,8 @@ public class LoginIntercept implements Interceptor {
     public void intercept(InterceptorStack is, ControllerMethod cm, Object o) throws InterceptionException {
             if(usuarioSession.logado()){
                 is.next(cm, o);
-            }else{
-               // result.redirectTo(HomeController.class).home();
-                
-                
+            }else{                
+                result.redirectTo(HomeController.class).home();                                
             }
     }
 
@@ -43,4 +41,7 @@ public class LoginIntercept implements Interceptor {
     public boolean accepts(ControllerMethod cm) {
         return !cm.containsAnnotation(Private.class);
     }        
+    
+    
+    
 }
