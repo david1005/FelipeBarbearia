@@ -3,6 +3,7 @@ br\edu\fjn\barbearia\model\Servico.class
 br\edu\fjn\barbearia\controllers\LoginAdmController.class
 br\edu\fjn\barbearia\repositorios\AgendamentoRopositorio.class
 br\edu\fjn\barbearia\anotacao\Private.class
+br\edu\fjn\barbearia\controllers\AdmController.class
 br\edu\fjn\barbearia\repositorios\FuncionarioRepositorio.class
 br\edu\fjn\barbearia\model\Funcionario.class
 br\edu\fjn\barbearia\model\Agendamento.class

@@ -17,26 +17,26 @@ import javax.persistence.EntityManager;
  */
 public class AgendamentoRopositorio {
     
-    public void salvar(Agendamento agendar) {
+    public void salvar(Agendamento agendamento) {
 		EntityManager manager = FabricaDeConexao.getEntityManager();
 		try {
 			manager.getTransaction().begin();
-			manager.persist(agendar);// insert
+			manager.persist(agendamento);// insert
 			manager.getTransaction().commit();// ENCERRA TRANSAÇÃO SALVANDOS OS DADOS 
-                        System.out.println(" jujubasalvou");
+                         
 		} catch (Exception e) {
 			manager.getTransaction().rollback();// ENCERRA TRANSAÇÃO DESFAZENDO  AS ALTERAÇÕES. 
-                     
+                    
 		}
 		manager.close();
                
 	}
     
-    public void atualizar(Agendamento agendar) {
+    public void atualizar(Agendamento agendamento) {
 		EntityManager manager = FabricaDeConexao.getEntityManager();
 		try {
 			manager.getTransaction().begin();
-			manager.merge(agendar);// update
+			manager.merge(agendamento);// update
 			manager.getTransaction().commit();
 		} catch (Exception e) {
 			manager.getTransaction().rollback();// "REVERTER"caso aconteça falha na hora de salvar
@@ -45,12 +45,12 @@ public class AgendamentoRopositorio {
 		manager.close();
 	}
     
-     public void deletar(Agendamento agendar) {
+     public void deletar(Agendamento agendamento) {
         EntityManager manager = FabricaDeConexao.getEntityManager();
 
         try {
             manager.getTransaction().begin();
-            Agendamento a = manager.find(Agendamento.class, agendar.getId());
+            Agendamento a = manager.find(Agendamento.class, agendamento.getId());
             manager.remove(a);// deletar
             manager.getTransaction().commit();
         } catch (Exception e) {

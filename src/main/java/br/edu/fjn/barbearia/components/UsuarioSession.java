@@ -5,16 +5,29 @@
  */
 package br.edu.fjn.barbearia.components;
 
+import br.edu.fjn.barbearia.model.Usuario;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 /**
  *
  * @author david
  */
 @SessionScoped
+@Named("userSession")
 public class UsuarioSession implements Serializable {
     
      private boolean logado;
+     private Usuario user;
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+     
  
     
     public boolean logado() {

@@ -76,6 +76,6 @@ public class LoginClienteController {
       @Get("sair")
     public void sair() {
         usuarioSession.setLogado(false);
-        result.redirectTo(this).login();
+        result.redirectTo(HomeController.class).home();
     }
 }

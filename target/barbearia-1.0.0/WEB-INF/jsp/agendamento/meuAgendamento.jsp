@@ -26,10 +26,10 @@
                     <c:forEach items="${agendamentoList}" var="agendamento">
                         <tr>
 
-                            <td>${agendamento.dataDia}</td>
-                            <td>${agendamento.horario}</td>
-                            <td>${agendamento.servico}</td>
-                            <td>${agendamento.funcionario}</td>            
+                            <td>${agendamento.dataDia.data}</td>
+                            <td>${agendamento.horario.hora}</td>
+                            <td>${agendamento.servico.descricao}</td>
+                            <td>${agendamento.funcionario.name}</td>            
                             <td class="right aligned">
                                 <div >  
                                     <button type="submit" class="ui left attached button">

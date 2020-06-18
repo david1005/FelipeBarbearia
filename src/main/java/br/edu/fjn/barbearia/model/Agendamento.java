@@ -32,7 +32,7 @@ public class Agendamento implements Serializable {
     private Servico servico;
 
     @JoinColumn
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Funcionario funcionario;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -42,11 +42,23 @@ public class Agendamento implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Horario horario;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn
+    private Usuario usuario;
 
     
     
     public Agendamento(){
         
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getId() {

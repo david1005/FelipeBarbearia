@@ -62,13 +62,14 @@ public class AgendamentoController {
 
     @Get("id/{id}")
     public void get(Integer id) {
-        result.include("chamado", agendamentoRepositorio.buscarPorId(id));
-//        result.of(this).atualizaChamado();
+        result.include("agendamento", agendamentoRepositorio.buscarPorId(id));
+       // result.of(this).atualizaChamado();
     }
     
     @Post("salvar")
-    public void salvar(Agendamento agendar) {
-        agendamentoRepositorio.salvar(agendar);
+    public void salvar(Agendamento agendamento) {
+        
+        agendamentoRepositorio.salvar(agendamento);
         result.redirectTo(this).meuAgendamento();
     }
     
