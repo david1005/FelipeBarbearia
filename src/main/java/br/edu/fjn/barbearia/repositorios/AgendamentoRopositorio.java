@@ -5,6 +5,7 @@
  */
 package br.edu.fjn.barbearia.repositorios;
 
+import br.edu.fjn.barbearia.components.UsuarioSession;
 import br.edu.fjn.barbearia.model.Agendamento;
 import br.edu.fjn.barbearia.model.Usuario;
 import br.edu.fjn.barbearia.util.FabricaDeConexao;
@@ -68,6 +69,7 @@ public class AgendamentoRopositorio {
     
       
       public List<Agendamento> list() {
+           UsuarioSession usuarioSession = new UsuarioSession();
         EntityManager em = FabricaDeConexao.getEntityManager();
         try {
             List<Agendamento> agendamento = em.createQuery("from Agendamento", Agendamento.class).getResultList();

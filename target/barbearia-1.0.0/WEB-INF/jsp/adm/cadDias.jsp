@@ -14,8 +14,8 @@
                 <h1>Cadastrar Dias</h1>
                 <form action="${pageContext.request.contextPath}/admin/salvar4" method="post">
                     <div >
-                        <div class="input-group-prepend" >
-                            <input type="text" class="form-control" name="data.data" value="${data.data}" required placeholder="00/00/0000"/>
+                        <div  >
+                            <input type="date" class="datepicker" name="data.data" value="${data.data}" required placeholder="00/00/0000"/>
                         </div>
                     </div>
                         </br>

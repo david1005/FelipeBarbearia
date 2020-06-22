@@ -11,6 +11,7 @@ import br.edu.fjn.barbearia.model.Servico;
 import br.edu.fjn.barbearia.model.Funcionario;
 import br.edu.fjn.barbearia.model.Horario;
 import br.edu.fjn.barbearia.model.Usuario;
+import br.edu.fjn.barbearia.repositorios.AgendamentoRopositorio;
 import br.edu.fjn.barbearia.repositorios.DataDiaRepositorio;
 import br.edu.fjn.barbearia.repositorios.FuncionarioRepositorio;
 import br.edu.fjn.barbearia.repositorios.HorarioRepositorio;
@@ -31,6 +32,8 @@ public class AdmController {
     Result result;
     @Inject
     private UsuarioSession usuarioSession; 
+     @Inject
+    private AgendamentoRopositorio agendamentoRepositorio;
 
     @Get("")
     public void loginAdm() {
@@ -80,6 +83,17 @@ public class AdmController {
     public void cadDias() {
 
     }
+    
+    @Get("listadeagendamentos")
+    public void verAgendamentos(){
+         result.include("agendamentoList", agendamentoRepositorio.list());                
+    }
+       @Get("meushorarios")
+    public void meuAgendamento() {
+        result.include("agendamentoList", agendamentoRepositorio.list());
+
+    }
+    
 
     /*@Post("atualizarservico")
         public void update(Servico servico) {
@@ -179,5 +193,6 @@ public class AdmController {
         funcionarioRepositorio.deletar(funcionario);
         result.redirectTo(this).verFuncionario();
     }
+    
 
 }

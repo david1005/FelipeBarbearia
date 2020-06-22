@@ -34,6 +34,10 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/flaticon.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icomoon.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/semantic.min.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adjust.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icon.min.css"/>
 
 
     </head>
@@ -48,11 +52,8 @@
 
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="${pageContext.request.contextPath}" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/servicos/servico" class="nav-link">Serviços</a></li>
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/galeria/galeri" class="nav-link">Galeria</a></li>
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/sobre/sobre" class="nav-link">Sobre</a></li>
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/contato/contato" class="nav-link">Contato</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/agendamento/sair" class="nav-link">Sair</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/agendar/agendamento" class="nav-link">Voltar</a></li>
                     </ul>
                 </div>
             </div>

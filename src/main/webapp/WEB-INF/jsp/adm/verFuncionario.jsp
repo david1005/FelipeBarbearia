@@ -8,9 +8,7 @@
     <%@include file="header.jsp" %>
 </div>
 
-<button> 
-    <a href="${pageContext.request.contextPath}/admin">Voltar</a>
-</button>
+
 <section class="services-section ftco-section " align="center">
     <div class="container">
         <div class="ui column grid">

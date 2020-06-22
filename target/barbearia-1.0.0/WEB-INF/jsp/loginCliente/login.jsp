@@ -20,15 +20,15 @@
 
                         <div class="row">
                             <div class="input-field col s6">
-                                <input  class="validate" type="text" id="userName" name="user.userName">
-                                <label class="active" for="first_name2">E-mail</label>
+                                <input  class="form-control" type="text" id="userName" name="user.userName" placeholder="exemplo@exemplo.com">
+                                
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s6">
-                                <input   class="validate"" type="password" name="user.password"  id="senha"  >
-                                <label class="active" for="first_name2">Senha</label>
+                                <input  class="form-control" type="password" name="user.password"  id="senha"   placeholder="*********">
+                                
                             </div>
                         </div>
 

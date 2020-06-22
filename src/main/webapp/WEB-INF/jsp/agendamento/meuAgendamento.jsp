@@ -15,10 +15,10 @@
             <table class="ui small stackable striped table">
                 <thead>
                     <tr>                                                
-                        <th>Dia</th>
-                        <th>Horário</th>
-                        <th>Serviço</th>
-                        <th>Profissional</th>                                                
+                        <th><h3>Dia</h3></th>
+                        <th><h3>Horário</h3></th>
+                        <th><h3>Serviço</h3></th>
+                        <th><h3>Profissional</h3></th>                                                
                     </tr>
                 </thead>
 
@@ -26,22 +26,31 @@
                     <c:forEach items="${agendamentoList}" var="agendamento">
                         <tr>
 
-                            <td>${agendamento.dataDia.data}</td>
-                            <td>${agendamento.horario.hora}</td>
-                            <td>${agendamento.servico.descricao}</td>
-                            <td>${agendamento.funcionario.name}</td>            
+                            <td><h6>${agendamento.dataDia.data}</h6></td>
+                            <td><h6>${agendamento.horario.hora}</h6></td>
+                            <td><h6>${agendamento.servico.descricao}</h6></td>
+                            <td><h6>${agendamento.funcionario.name}</h6></td>            
                             <td class="right aligned">
-                                <div >  
-                                    <button type="submit" class="ui left attached button">
+                                <!--                                <div class="sixteen wide column right aligned">-->
 
-                                        <a href="${pageContext.request.contextPath}/agendar/id/${chamado.id}">Editar</a>
-                                    </button>
-                                    <form action="${pageContext.request.contextPath}/agendar/remover" method="post">
-                                        <input type="hidden" name="chamado.id" value="${agendamento.id}"/>
-                                        <button type="submit" class="ui left attached button">Remover</button>
-                                    </form>
 
-                                </div>
+
+                                <div class="sixteen wide column right aligned" >
+                                    <div  class="ui buttons">
+
+                                      
+                                        <form action="${pageContext.request.contextPath}/agendar/remover" method="Post">
+                                            <input type="hidden" name="agendamento.id" value="${agendamento.id}" />
+                                            <button type="submit" class="ui olive basic button" >
+                                            Cancelar
+                                        </button>
+                                        </form>
+
+                                    </div>
+                                </div>  
+
+
+
                             </td>
                         </tr>
                     </c:forEach>

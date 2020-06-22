@@ -14,8 +14,8 @@
                 <h1>Cadastrar Horários</h1>
                 <form action="${pageContext.request.contextPath}/admin/salvar3" method="post">
                     <div >
-                        <div class="input-group-prepend" >
-                            <input type="text" class="form-control" name="horario.hora" value="${horario.hora}" required placeholder="00:00"/>
+                        <div  >
+                            <input  type="time" class="datepicker"  name="horario.hora" value="${horario.hora}" required placeholder="00:00" />
                         </div>
                     </div>
                         </br>

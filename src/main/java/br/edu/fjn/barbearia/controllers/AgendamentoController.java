@@ -41,6 +41,8 @@ public class AgendamentoController {
 
     }
 
+    
+
     @Get("agendar")
     public void agendar() {
         ServicoRepositorio servicoRepositorio = new ServicoRepositorio();
@@ -60,25 +62,35 @@ public class AgendamentoController {
 
     }
 
+    /**
+     *
+     * @param id
+     */
     @Get("id/{id}")
     public void get(Integer id) {
         result.include("agendamento", agendamentoRepositorio.buscarPorId(id));
-       // result.of(this).atualizaChamado();
+        
     }
-    
+
+    @Post("update")
+    public void atualizar(Agendamento agendamento) {
+        agendamentoRepositorio.atualizar(agendamento);//        
+        result.redirectTo(this).meuAgendamento();
+    }
+
     @Post("salvar")
     public void salvar(Agendamento agendamento) {
-        
         agendamentoRepositorio.salvar(agendamento);
         result.redirectTo(this).meuAgendamento();
     }
-    
+
     @Get("meushorarios")
-    public void meuAgendamento(){
-           result.include("agendamentoList", agendamentoRepositorio.list());
-        
+    public void meuAgendamento() {
+        result.include("agendamentoList", agendamentoRepositorio.list());
+
     }
-     @Post("remover")
+
+    @Post("remover")
     public void deletar(Agendamento agendamento) {
         agendamentoRepositorio.deletar(agendamento);
         result.redirectTo(this).meuAgendamento();

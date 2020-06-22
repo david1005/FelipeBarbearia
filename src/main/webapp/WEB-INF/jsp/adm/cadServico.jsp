@@ -33,8 +33,8 @@
                 <h1>Adicionar Serviço</h1>
                 <form action="${pageContext.request.contextPath}/admin/salvar" method="post">
                     <div >
-                        <div class="input-group-prepend" >
-                            <input type="text" class="form-control" name="servico.descricao" value="${servico.descricao}" required placeholder="Nome"/>
+                        <div  >
+                            <input type="text" class="col-sm-2 col-form-label" name="servico.descricao" value="${servico.descricao}" required placeholder="Corte Simples - R$ 10,00"/>
                         </div>
                     </div>
                         </br>

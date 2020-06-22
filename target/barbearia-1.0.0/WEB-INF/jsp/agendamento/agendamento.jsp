@@ -7,9 +7,9 @@
 <%@include file="header.jsp" %>
 
 
-             <%@include file="../agendamento/nav.jsp" %>
+<%@include file="../agendamento/nav.jsp" %>
 
 
 
 
-       <%@include file="footer.jsp" %>
+<%@include file="footer.jsp" %>

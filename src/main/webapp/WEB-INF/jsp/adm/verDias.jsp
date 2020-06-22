@@ -7,9 +7,7 @@
 <div>
     <%@include file="header.jsp" %>
 </div>
-<button> 
-    <a href="${pageContext.request.contextPath}/admin">Voltar</a>
-</button>
+
 <section class="services-section ftco-section " align="center">
     <div class="container">
         <div class="ui column grid">
@@ -26,7 +24,7 @@
                     <c:forEach items="${data}" var="data">
                         <tr>
 
-                           <td><h3>${data.data}</h3></td>
+                           <td><h3 type="date">${data.data}</h3></td>
                                        
                             <td class="right aligned">
                                 <div >  

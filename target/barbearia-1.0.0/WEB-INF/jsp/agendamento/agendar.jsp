@@ -23,40 +23,34 @@
 
         <section class="services-section ftco-section " align="center">
             <div class="container">
-                <div   text-right> 
-                    <button class=" text-right " >
-                        <a href="${pageContext.request.contextPath}/agendamento/sair">
-                            SAIR
-                        </a>
-                    </button>     
-                </div>
+                
                 <h3>Agendar um horário</h3>
                 
 
                 <form action="${pageContext.request.contextPath}/agendar/salvar" method="post">
 
-                    <select class="form-control"   >
+                    <select class="form-control" name="agendamento.servico.id"  >
                         <option  selected>Selecione um Serviço</option>
                         <c:forEach items="${servicos}" var="servico">  
                             <option value="${servico.id}">${servico.descricao}</option>
                         </c:forEach>
                     </select>
                     <br>
-                    <select class="form-control"  >
+                    <select class="form-control" name="agendamento.funcionario.id" >
                         <option selected>Selecione um Profissional</option>
                         <c:forEach items="${funcionarios}" var="funcionario">  
                             <option value="${funcionario.id}">${funcionario.name}</option>
                         </c:forEach>
                     </select>
                     <br>
-                    <select class="form-control"  >
+                    <select class="form-control" name="agendamento.dataDia.id" >
                         <option  selected>Selecione o Dia </option>
                         <c:forEach items="${datadias}" var="datadia">  
                             <option value="${datadia.id}">${datadia.data}</option>
                         </c:forEach>
                     </select>
                     <br>
-                    <select class="form-control"  >
+                    <select class="form-control" name="agendamento.horario.id" >
                         <option selected>Selecione um Horário</option>
                         <c:forEach items="${horarios}" var="horario">  
                             <option value="${horario.id}">${horario.hora}</option>
