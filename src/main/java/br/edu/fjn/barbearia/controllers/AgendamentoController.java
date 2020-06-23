@@ -15,11 +15,14 @@ import br.edu.fjn.barbearia.model.DataDia;
 import br.edu.fjn.barbearia.model.Funcionario;
 import br.edu.fjn.barbearia.model.Horario;
 import br.edu.fjn.barbearia.model.Servico;
+import br.edu.fjn.barbearia.model.Usuario;
 import br.edu.fjn.barbearia.repositorios.AgendamentoRopositorio;
 import br.edu.fjn.barbearia.repositorios.DataDiaRepositorio;
 import br.edu.fjn.barbearia.repositorios.FuncionarioRepositorio;
 import br.edu.fjn.barbearia.repositorios.HorarioRepositorio;
+import br.edu.fjn.barbearia.repositorios.LoginRepositorio;
 import br.edu.fjn.barbearia.repositorios.ServicoRepositorio;
+import br.edu.fjn.barbearia.repositorios.UsuarioRepositorio;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -49,16 +52,21 @@ public class AgendamentoController {
         FuncionarioRepositorio funcionarioRepositorio = new FuncionarioRepositorio();
         HorarioRepositorio horarioRepositorio = new HorarioRepositorio();
         DataDiaRepositorio dataDiaRepositorio = new DataDiaRepositorio();
+        UsuarioRepositorio userRepositorio = new UsuarioRepositorio();
 
         List<Servico> servicos = servicoRepositorio.list();
         List<Funcionario> funcionarios = funcionarioRepositorio.list();
         List<Horario> horarios = horarioRepositorio.list();
         List<DataDia> datadias = dataDiaRepositorio.list();
+        List<Usuario> usuarios = userRepositorio.list();
+        
 
         result.include("servicos", servicos);
         result.include("funcionarios", funcionarios);
         result.include("horarios", horarios);
         result.include("datadias", datadias);
+        result.include("usuarios", usuarios);
+        
 
     }
 

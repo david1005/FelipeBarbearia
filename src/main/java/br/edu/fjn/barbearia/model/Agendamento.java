@@ -46,20 +46,25 @@ public class Agendamento implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Usuario usuario;
-
+    
+    private String nameCliente;
+    
     
     
     public Agendamento(){
         
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getNameCliente() {
+        return nameCliente;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setNameCliente(String nameCliente) {
+        this.nameCliente = nameCliente;
     }
+
+    
+  
 
     public Integer getId() {
         return id;

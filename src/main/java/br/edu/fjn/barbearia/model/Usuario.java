@@ -32,17 +32,9 @@ public class Usuario implements Serializable {
     @Column(name="pwd",nullable= false)
     private String password;
     
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn
-    public Agendamento agendamento;
+  
 
-    public Agendamento getAgendamento() {
-        return agendamento;
-    }
-
-    public void setAgendamento(Agendamento agendamento) {
-        this.agendamento = agendamento;
-    }
+   
     
     
     
