@@ -41,10 +41,11 @@ public class AgendamentoController {
     private AgendamentoRopositorio agendamentoRepositorio;
 
     public void agendamento() {
+        UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
+        List<Usuario> id = usuarioRepositorio.listId();
+        result.include("id", id);
 
     }
-
-    
 
     @Get("agendar")
     public void agendar() {
@@ -59,14 +60,12 @@ public class AgendamentoController {
         List<Horario> horarios = horarioRepositorio.list();
         List<DataDia> datadias = dataDiaRepositorio.list();
         List<Usuario> usuarios = userRepositorio.list();
-        
 
         result.include("servicos", servicos);
         result.include("funcionarios", funcionarios);
         result.include("horarios", horarios);
         result.include("datadias", datadias);
         result.include("usuarios", usuarios);
-        
 
     }
 
@@ -77,12 +76,12 @@ public class AgendamentoController {
     @Get("id/{id}")
     public void get(Integer id) {
         result.include("agendamento", agendamentoRepositorio.buscarPorId(id));
-        
+
     }
 
     @Post("update")
     public void atualizar(Agendamento agendamento) {
-        agendamentoRepositorio.atualizar(agendamento);//        
+        agendamentoRepositorio.atualizar(agendamento);        
         result.redirectTo(this).meuAgendamento();
     }
 

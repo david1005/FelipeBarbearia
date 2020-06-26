@@ -33,9 +33,11 @@
             <input  class="form-control" type="text" id="nameCliente" name="agendamento.nameCliente" placeholder="Seu Nome">
             <br/>
 
-           <input  class="form-control" type="number"  name="agendamento.usuario.id" value="${agendamento.usuario.id}" placeholder="Seu Nome">
-
            
+           
+           
+
+
 
             <br/>
 

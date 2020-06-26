@@ -6,6 +6,7 @@
 package br.edu.fjn.barbearia.model;
 
 import java.io.Serializable;
+import java.util.TimerTask;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ import javax.persistence.Id;
  * @author david
  */
 @Entity
-public class DataDia implements Serializable {
+public class DataDia   implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

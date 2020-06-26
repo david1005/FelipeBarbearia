@@ -12,8 +12,12 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.barbearia.anotacao.Private;
 import br.edu.fjn.barbearia.components.UsuarioSession;
+import br.edu.fjn.barbearia.model.DataDia;
 import br.edu.fjn.barbearia.model.Usuario;
+import br.edu.fjn.barbearia.repositorios.DataDiaRepositorio;
 import br.edu.fjn.barbearia.repositorios.LoginRepositorio;
+import br.edu.fjn.barbearia.repositorios.UsuarioRepositorio;
+import java.util.List;
 import javax.inject.Inject;
 
 /**
@@ -78,4 +82,7 @@ public class LoginClienteController {
         usuarioSession.setLogado(false);
         result.redirectTo(HomeController.class).home();
     }
+    
+    
+   
 }

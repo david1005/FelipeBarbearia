@@ -76,5 +76,17 @@ public class UsuarioRepositorio {
             em.close();
         }
     }
+     public List<Usuario> listId() {
+        EntityManager em = FabricaDeConexao.getEntityManager();
+        try {
+            List<Usuario> user = em.createQuery("from Id", Usuario.class).getResultList();
+            return user;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            em.close();
+        }
+    }
     
 }

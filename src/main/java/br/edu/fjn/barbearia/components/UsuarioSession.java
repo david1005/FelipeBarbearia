@@ -18,6 +18,7 @@ import javax.inject.Named;
 public class UsuarioSession implements Serializable {
     
      private boolean logado;
+     
   
  
     

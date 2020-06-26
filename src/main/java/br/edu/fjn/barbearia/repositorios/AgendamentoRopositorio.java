@@ -17,36 +17,36 @@ import javax.persistence.EntityManager;
  * @author david
  */
 public class AgendamentoRopositorio {
-    
+
     public void salvar(Agendamento agendamento) {
-		EntityManager manager = FabricaDeConexao.getEntityManager();
-		try {
-			manager.getTransaction().begin();
-			manager.persist(agendamento);// insert
-			manager.getTransaction().commit();// ENCERRA TRANSAÇÃO SALVANDOS OS DADOS 
-                         
-		} catch (Exception e) {
-			manager.getTransaction().rollback();// ENCERRA TRANSAÇÃO DESFAZENDO  AS ALTERAÇÕES. 
-                    
-		}
-		manager.close();
-               
-	}
-    
+        EntityManager manager = FabricaDeConexao.getEntityManager();
+        try {
+            manager.getTransaction().begin();
+            manager.persist(agendamento);// insert
+            manager.getTransaction().commit();// ENCERRA TRANSAÇÃO SALVANDOS OS DADOS 
+
+        } catch (Exception e) {
+            manager.getTransaction().rollback();// ENCERRA TRANSAÇÃO DESFAZENDO  AS ALTERAÇÕES. 
+
+        }
+        manager.close();
+
+    }
+
     public void atualizar(Agendamento agendamento) {
-		EntityManager manager = FabricaDeConexao.getEntityManager();
-		try {
-			manager.getTransaction().begin();
-			manager.merge(agendamento);// update
-			manager.getTransaction().commit();
-		} catch (Exception e) {
-			manager.getTransaction().rollback();// "REVERTER"caso aconteça falha na hora de salvar
-			System.out.println("Nosso Tratamento"+e.getMessage());
-		}
-		manager.close();
-	}
-    
-     public void deletar(Agendamento agendamento) {
+        EntityManager manager = FabricaDeConexao.getEntityManager();
+        try {
+            manager.getTransaction().begin();
+            manager.merge(agendamento);// update
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            manager.getTransaction().rollback();// "REVERTER"caso aconteça falha na hora de salvar
+            System.out.println("Nosso Tratamento" + e.getMessage());
+        }
+        manager.close();
+    }
+
+    public void deletar(Agendamento agendamento) {
         EntityManager manager = FabricaDeConexao.getEntityManager();
 
         try {
@@ -59,17 +59,16 @@ public class AgendamentoRopositorio {
         }
         manager.close();
     }
-     
-      public Agendamento buscarPorId(Integer id) {
-		EntityManager em = FabricaDeConexao.getEntityManager();
-		Agendamento a = em.find(Agendamento.class, id);
-		em.clear();
-		return a;
-	}
-    
-      
-      public List<Agendamento> list() {
-           UsuarioSession usuarioSession = new UsuarioSession();
+
+    public Agendamento buscarPorId(Integer id) {
+        EntityManager em = FabricaDeConexao.getEntityManager();
+        Agendamento a = em.find(Agendamento.class, id);
+        em.clear();
+        return a;
+    }
+
+    public List<Agendamento> list() {
+
         EntityManager em = FabricaDeConexao.getEntityManager();
         try {
             List<Agendamento> agendamento = em.createQuery("from Agendamento", Agendamento.class).getResultList();
@@ -81,4 +80,6 @@ public class AgendamentoRopositorio {
             em.close();
         }
     }
-}
+
+  
+    }

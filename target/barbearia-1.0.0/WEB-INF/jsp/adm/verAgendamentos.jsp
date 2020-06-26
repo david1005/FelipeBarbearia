@@ -18,7 +18,8 @@
                         <th><h3>Dia</h3></th>
                         <th><h3>Horário</h3></th>
                         <th><h3>Serviço</h3></th>
-                        <th><h3>Profissional</h3></th>                                                
+                        <th><h3>Profissional</h3></th>  
+                         <th><h3>Cliente</h3></th> 
                     </tr>
                 </thead>
 
@@ -29,7 +30,8 @@
                             <td><h6>${agendamento.dataDia.data}</h6></td>
                             <td><h6>${agendamento.horario.hora}</h6></td>
                             <td><h6>${agendamento.servico.descricao}</h6></td>
-                            <td><h6>${agendamento.funcionario.name}</h6></td>            
+                            <td><h6>${agendamento.funcionario.name}</h6></td> 
+                             <td><h6>${agendamento.nameCliente}</h6></td> 
                             <td class="right aligned">
                                 <!--                                <div class="sixteen wide column right aligned">-->
 

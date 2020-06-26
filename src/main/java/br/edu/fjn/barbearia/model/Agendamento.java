@@ -6,6 +6,8 @@
 package br.edu.fjn.barbearia.model;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.TimerTask;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,7 +23,7 @@ import javax.persistence.OneToOne;
  * @author david
  */
 @Entity
-public class Agendamento implements Serializable {
+public class Agendamento  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -38,6 +40,8 @@ public class Agendamento implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private DataDia dataDia;
+    
+  
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
@@ -109,6 +113,7 @@ public class Agendamento implements Serializable {
     public void setServico(Servico servico) {
         this.servico = servico;
     }
+
     
     
 }

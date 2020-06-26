@@ -6,6 +6,7 @@
 package br.edu.fjn.barbearia.model;
 
 import java.io.Serializable;
+import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
