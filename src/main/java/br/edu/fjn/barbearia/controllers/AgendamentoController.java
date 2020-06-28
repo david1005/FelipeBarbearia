@@ -25,6 +25,7 @@ import br.edu.fjn.barbearia.repositorios.ServicoRepositorio;
 import br.edu.fjn.barbearia.repositorios.UsuarioRepositorio;
 import java.util.List;
 import javax.inject.Inject;
+import static org.hibernate.criterion.Projections.id;
 
 /**
  *
@@ -46,6 +47,8 @@ public class AgendamentoController {
         result.include("id", id);
 
     }
+    
+    
 
     @Get("agendar")
     public void agendar() {
@@ -81,7 +84,7 @@ public class AgendamentoController {
 
     @Post("update")
     public void atualizar(Agendamento agendamento) {
-        agendamentoRepositorio.atualizar(agendamento);        
+        agendamentoRepositorio.atualizar(agendamento);//        
         result.redirectTo(this).meuAgendamento();
     }
 

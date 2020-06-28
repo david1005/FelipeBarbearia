@@ -49,7 +49,7 @@
                             Usuário
                         </span>
                         <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-                            <input class="input100" type="text" id="userName" name="user.userName" >
+                            <input class="input100" type="text" id="userName" name="user.email" >
                             <span class="focus-input100"></span>
                         </div>
 

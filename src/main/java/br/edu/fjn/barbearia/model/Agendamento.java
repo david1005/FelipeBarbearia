@@ -48,10 +48,12 @@ public class Agendamento  implements Serializable {
     private Horario horario;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn
+    @JoinColumn()
     private Usuario usuario;
     
     private String nameCliente;
+
+  
     
     
     
@@ -112,6 +114,14 @@ public class Agendamento  implements Serializable {
 
     public void setServico(Servico servico) {
         this.servico = servico;
+    }
+    
+      public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     

@@ -30,14 +30,15 @@
         <form action="${pageContext.request.contextPath}/agendar/salvar" method="post">
 
 
-            <input  class="form-control" type="text" id="nameCliente" name="agendamento.nameCliente" placeholder="Seu Nome">
-            <br/>
+            <!--            <input  class="form-control" type="text" id="nameCliente " name="usuario.name" placeholder="Seu Nome">                                -->
 
-           
-           
-           
+            <select class="form-control" name="agendamento.usuario.id"  >
+                <option  selected>Selecione seu Nome</option>
+                <c:forEach items="${usuarios}" var="usuario">  
 
-
+                    <option value="${usuario.id}">${usuario.name}</option>
+                </c:forEach>
+            </select>
 
             <br/>
 

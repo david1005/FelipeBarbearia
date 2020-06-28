@@ -6,11 +6,14 @@
 package br.edu.fjn.barbearia.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.TimerTask;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import org.hibernate.annotations.CreationTimestamp;
 
 /**
  *
@@ -22,6 +25,7 @@ public class DataDia   implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
+
 
     private String data;
     
@@ -46,6 +50,8 @@ public class DataDia   implements Serializable {
         this.data = data;
     }
 
+
+   
 
     
     

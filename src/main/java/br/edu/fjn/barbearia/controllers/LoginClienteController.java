@@ -51,10 +51,11 @@ public class LoginClienteController {
     
     @Private
     @Post("login")
-    public void login(Usuario user){
+    public void login(Usuario user ){
         LoginRepositorio loginRepositorio = new LoginRepositorio();
         
-        if(loginRepositorio.buscaPorNomeESenha(user.getUserName(), user.getPassword()) != null){
+        if(loginRepositorio.buscaPorNomeESenha(user.getEmail(), user.getPassword()) != null){
+            
             usuarioSession.setLogado(true);
             result.redirectTo(AgendamentoController.class).agendamento();
         }else{
@@ -62,13 +63,31 @@ public class LoginClienteController {
             result.redirectTo(this).login();
         }
     }
+//    
+//    @Private
+//    @Post("login")
+//    public void login(String cpf, String password) {
+//        //chamando método irá buscar o cpf e senha
+//        Usuario u = UsuarioRepositorio.buscarPorCpfESenha(cpf, password);
+//        //se o objeto for diferente de nulo, é feito o login e redireciona para a página de adm
+//        //se não continue na página de login.
+//        if (u != null) {
+//            System.out.println("pp" + u);
+//            usuarioSession.setCpf(cpf);
+//            result.redirectTo(AgendamentoController.class).agendamento();
+//        } else {
+//           result.redirectTo(this).login();
+//        }
+//    }
+    
+    
     
     @Private
     @Post("cadastrar")
     public void salvar(Usuario user){
         LoginRepositorio loginRepositorio = new LoginRepositorio();
         
-        if(loginRepositorio.buscarPorNome(user.getUserName()) == null ){
+        if(loginRepositorio.buscarPorNome(user.getEmail()) == null ){
             loginRepositorio.salvar(user);
             result.redirectTo(this).login();
         }else{

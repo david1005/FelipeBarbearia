@@ -11,6 +11,11 @@ import br.edu.fjn.barbearia.model.Usuario;
 import br.edu.fjn.barbearia.util.FabricaDeConexao;
 import java.util.List;
 import javax.persistence.EntityManager;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.MatchMode;
+import static org.hibernate.criterion.Projections.id;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -62,6 +67,7 @@ public class AgendamentoRopositorio {
 
     public Agendamento buscarPorId(Integer id) {
         EntityManager em = FabricaDeConexao.getEntityManager();
+
         Agendamento a = em.find(Agendamento.class, id);
         em.clear();
         return a;
@@ -71,6 +77,7 @@ public class AgendamentoRopositorio {
 
         EntityManager em = FabricaDeConexao.getEntityManager();
         try {
+
             List<Agendamento> agendamento = em.createQuery("from Agendamento", Agendamento.class).getResultList();
             return agendamento;
         } catch (Exception e) {
@@ -81,5 +88,16 @@ public class AgendamentoRopositorio {
         }
     }
 
-  
-    }
+//    public List<Agendamento> listAg(Agendamento id) {
+//
+//        EntityManager em = FabricaDeConexao.getEntityManager();
+//        Session session = (Session) em.getDelegate();
+//        Criteria criteria = session.createCriteria(Agendamento.class);
+//        criteria.createAlias("usuario", "u");
+//        criteria.add(Restrictions.ilike("u.id", id, MatchMode.ANYWHERE));
+//        List<Agendamento> agendamentoList = criteria.list();
+//        em.close();
+//        return agendamentoList;
+//
+//    }
+}

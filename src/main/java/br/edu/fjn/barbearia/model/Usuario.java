@@ -21,27 +21,56 @@ import javax.persistence.ManyToOne;
  * @author david
  */
 @Entity
+
 public class Usuario implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    
-    @Column(nullable = false,unique = true)
-    private String userName;
-    
-    @Column(name="pwd",nullable= false)
-    private String password;
-    
-  
 
-   
-    
-    
-    
-    public Usuario(){
-        
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String cpf;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(name = "pwd", nullable = false)
+    private String password;
+
+    private String telefone;
+
+    public Usuario() {
+
     }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
+    
 
     public Integer getId() {
         return id;
@@ -51,12 +80,12 @@ public class Usuario implements Serializable {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -65,5 +94,5 @@ public class Usuario implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }       
+    }
 }

@@ -10,6 +10,7 @@ import br.edu.fjn.barbearia.model.Usuario;
 import br.edu.fjn.barbearia.util.FabricaDeConexao;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -87,6 +88,25 @@ public class UsuarioRepositorio {
         } finally {
             em.close();
         }
+    }
+     
+      public static Usuario buscarPorCpfESenha(String cpf, String password) {
+        EntityManager em = FabricaDeConexao.getEntityManager();
+        Usuario u = null;
+        try {
+            u = em.createQuery(
+                    "select a from Usuario u where u.cpf = :cpf "
+                    + "AND u.password = :password", Usuario.class)
+                    .setParameter("cpf", cpf)
+                    .setParameter("password", password)
+                    .getSingleResult();
+           
+        } catch (NoResultException e) {
+            u = null;
+        }
+        
+        return u;
+        
     }
     
 }

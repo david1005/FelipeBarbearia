@@ -78,13 +78,23 @@
             </div>
             <div class="form-group" align="center">
                 
+                <div class="col-md-4">
+                    <input id="usuario" name="user.name"  type="text" class="form-control input-md" placeholder="Seu Nome">    
+                </div>
                 
                 <div class="col-md-4">
-                    <input id="usuario" name="user.userName"  type="text" class="form-control input-md" placeholder="Usuário">    
+                    <input id="usuario" name="user.cpf"  type="text" class="form-control input-md" placeholder="Seu CPF" minlength="11" maxlength="11" OnKeyPress="formatar('###.###.###-##', this); return onlynumber();">    
+                </div>
+                
+                <div class="col-md-4">
+                    <input id="usuario" name="user.email"  type="email" class="form-control input-md" placeholder="E-mail: exemple@example.com">    
+                </div>
+                <div class="col-md-4">
+                    <input id="usuario" name="user.telefone"  type="text" class="form-control input-md" placeholder="Celular: (88) 90000-0000" minlength="11" maxlength="11" OnKeyPress="formatar('##-#####-####', this); return onlynumber();">    
                 </div>
 
                 <div class="col-md-4" align="center">
-                    <input id="senha" name="user.password"  type="password" class="form-control input-md" placeholder="*********">
+                    <input id="senha" name="user.password"  type="password" class="form-control input-md" placeholder="Senha: *********">
                 </div>
                 
                 

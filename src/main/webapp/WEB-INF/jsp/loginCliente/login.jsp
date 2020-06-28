@@ -20,7 +20,7 @@
 
                         <div class="row">
                             <div class="input-field col s6">
-                                <input  class="form-control" type="text" id="userName" name="user.userName" placeholder="exemplo@exemplo.com">
+                                <input  class="form-control" type="text" id="email" name="user.email" placeholder="exemplo@exemplo.com">
                                 
                             </div>
                         </div>

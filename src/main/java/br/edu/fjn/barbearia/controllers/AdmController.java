@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.barbearia.components.UsuarioSession;
+import br.edu.fjn.barbearia.model.Agendamento;
 import br.edu.fjn.barbearia.model.DataDia;
 import br.edu.fjn.barbearia.model.Servico;
 import br.edu.fjn.barbearia.model.Funcionario;
@@ -48,7 +49,7 @@ public class AdmController {
     public void login(Usuario user){
         LoginRepositorio loginRepositorio = new LoginRepositorio();
         
-        if(loginRepositorio.buscaPorNomeESenha(user.getUserName(), user.getPassword()) != null){
+        if(loginRepositorio.buscaPorNomeESenha(user.getEmail(), user.getPassword()) != null){
             usuarioSession.setLogado(true);
             result.redirectTo(AdmController.class).inicio();
         }else{
@@ -140,7 +141,7 @@ public class AdmController {
     public void salvar(Horario horario) {
         HorarioRepositorio horarioRepositorio = new HorarioRepositorio();
         horarioRepositorio.salvar(horario);
-        result.redirectTo(this).verHorario();
+        result.redirectTo(this).cadHorario();
 
     }
 
@@ -148,7 +149,7 @@ public class AdmController {
     public void salvar(DataDia data) {
         DataDiaRepositorio dataDiaRepositorio = new DataDiaRepositorio();
         dataDiaRepositorio.salvar(data);
-        result.redirectTo(this).verDias();
+        result.redirectTo(this).cadDias();
 
     }
 
@@ -192,6 +193,12 @@ public class AdmController {
         FuncionarioRepositorio funcionarioRepositorio = new FuncionarioRepositorio();
         funcionarioRepositorio.deletar(funcionario);
         result.redirectTo(this).verFuncionario();
+    }
+    
+      @Post("remover5")
+    public void deletar(Agendamento agendamento) {
+        agendamentoRepositorio.deletar(agendamento);
+        result.redirectTo(this).verAgendamentos();
     }
     
 

@@ -10,6 +10,7 @@ package br.edu.fjn.barbearia.repositorios;
 import br.edu.fjn.barbearia.model.Usuario;
 import br.edu.fjn.barbearia.util.FabricaDeConexao;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
@@ -52,26 +53,46 @@ public class LoginRepositorio {
 		return userFun;
 	}
 
-        public Usuario buscarPorNome(String userName){
+        public Usuario buscarPorNome(String email){
             EntityManager em = FabricaDeConexao.getEntityManager();
             Session session = (Session) em.getDelegate();
             Criteria criteria = session.createCriteria(Usuario.class);
-            criteria.add(Restrictions.ilike("userName", userName, MatchMode.EXACT));
+            criteria.add(Restrictions.ilike("email", email, MatchMode.EXACT));
             Usuario usuario = (Usuario) criteria.uniqueResult();
             em.close();
             return usuario;
         }
         
-        public Usuario buscaPorNomeESenha(String userName, String password){
+        public Usuario buscaPorNomeESenha(String email, String password){
             EntityManager em = FabricaDeConexao.getEntityManager();
             Session  session = (Session) em.getDelegate();
             Criteria criteria = session.createCriteria(Usuario.class);
-            Criterion c1 = Restrictions.ilike("userName",userName, MatchMode.START);
+            Criterion c1 = Restrictions.ilike("email",email, MatchMode.START);
             Criterion c2 = Restrictions.ilike("password", password, MatchMode.START);
             criteria.add(Restrictions.and(c1,c2));
             Usuario user = (Usuario) criteria.uniqueResult();
             em.close();
             return user;
         }
+        
+        
+        public static Usuario buscarPorCpfESenha(String cpf, String password) {
+        EntityManager em = FabricaDeConexao.getEntityManager();
+        Usuario u = null;
+        try {
+            u = em.createQuery(
+                    "select a from Usuario u where u.cpf = :cpf "
+                    + "AND u.password = :password", Usuario.class)
+                    .setParameter("cpf", cpf)
+                    .setParameter("password", password)
+                    .getSingleResult();
+           
+        } catch (NoResultException e) {
+            u = null;
+        }
+        
+        return u;
+        
+    }
     
 }

@@ -5,32 +5,27 @@
  */
 package br.edu.fjn.barbearia.components;
 
-
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+
 /**
  *
  * @author david
  */
 @SessionScoped
-
+@Named("userSession")
 public class UsuarioSession implements Serializable {
-    
-     private boolean logado;
-     
-  
- 
-    
-    public boolean logado() {   
-        
+
+    private boolean logado;
+
+    public boolean logado() {
         return logado;
+
     }
-    
-  
 
     public void setLogado(boolean logado) {
         this.logado = logado;
-    }  
-    
+    }
+
 }
